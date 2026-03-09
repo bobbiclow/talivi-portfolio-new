@@ -13,16 +13,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f0c12;
-      --bg-soft:#17111d;
-      --card:#1e1627;
-      --text:#f8f5fb;
-      --muted:#c2b6ce;
-      --accent:#ff4fa3;
-      --accent-2:#ff84c1;
-      --line:rgba(255,255,255,.12);
-      --ok:#20d19f;
-      --shadow:0 20px 70px rgba(255,79,163,.22);
+      --bg:oklch(0.985 0.01 85);
+      --bg-soft:oklch(0.965 0.012 85);
+      --card:#ffffff;
+      --text:oklch(0.27 0.03 30);
+      --muted:oklch(0.52 0.03 35);
+      --accent:oklch(0.68 0.17 18);
+      --accent-2:oklch(0.75 0.14 45);
+      --line:oklch(0.88 0.01 80);
+      --ok:oklch(0.72 0.15 150);
+      --shadow:0 20px 45px rgba(156, 85, 56, .12);
+      --radius:18px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -30,8 +31,8 @@
       font-family:'Manrope',system-ui,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1000px 500px at 85% -5%, rgba(255,132,193,.18), transparent 50%),
-        radial-gradient(900px 450px at -10% 25%, rgba(255,79,163,.15), transparent 45%),
+        radial-gradient(900px 500px at -10% -10%, rgba(255, 225, 202, .55), transparent 50%),
+        radial-gradient(1000px 550px at 110% 10%, rgba(255, 236, 214, .52), transparent 50%),
         var(--bg);
       line-height:1.6;
       overflow-x:hidden;
@@ -41,104 +42,119 @@
 
     .header{
       position:sticky;top:0;z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(15,12,18,.6);
+      backdrop-filter: blur(8px);
+      background:rgba(252,248,244,.84);
       border-bottom:1px solid var(--line);
     }
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;letter-spacing:.5px}
+    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;letter-spacing:.4px}
     .logo span{color:var(--accent)}
     .nav{display:flex;gap:22px;align-items:center}
-    .nav a{color:var(--muted);font-weight:600;position:relative}
+    .nav a{color:var(--muted);font-weight:700;position:relative}
     .nav a:hover{color:var(--text)}
     .nav a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:.25s}
     .nav a:hover::after{width:100%}
 
-    .hero{padding:84px 0 68px;position:relative}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+    .hero{padding:84px 0 56px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     .badge{
       display:inline-flex;gap:8px;align-items:center;
-      border:1px solid var(--line);background:rgba(255,255,255,.03);
+      border:1px solid var(--line);background:#fff;
       color:var(--muted);padding:8px 14px;border-radius:999px;font-size:.92rem
     }
     h1{
       margin:18px 0 14px;
       font-family:'Playfair Display',serif;
-      font-size:clamp(2.1rem,5vw,4rem);
+      font-size:clamp(2.1rem,5vw,3.9rem);
       line-height:1.08;
     }
-    .accent{color:var(--accent-2)}
+    .accent{color:var(--accent)}
     .lead{color:var(--muted);font-size:1.08rem;max-width:620px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
     .btn{
       padding:13px 22px;border-radius:14px;border:1px solid transparent;
-      font-weight:700;transition:.25s;display:inline-flex;align-items:center;gap:10px
+      font-weight:800;transition:.25s;display:inline-flex;align-items:center;gap:10px
     }
     .btn-primary{
-      background:linear-gradient(135deg,var(--accent),#ff2f92);
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;
       box-shadow:var(--shadow);
     }
-    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
-    .btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.03)}
-    .btn-ghost:hover{border-color:rgba(255,255,255,.3)}
+    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.03)}
+    .btn-ghost{border-color:var(--line);color:var(--text);background:#fff}
+    .btn-ghost:hover{border-color:oklch(0.76 0.03 65)}
 
     .hero-card{
-      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-      border:1px solid var(--line);border-radius:22px;padding:18px;position:relative;overflow:hidden
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow);
     }
-    .hero-card img{width:100%;height:440px;object-fit:cover;border-radius:16px;display:block}
-    .hero-card .note{
-      position:absolute;left:28px;bottom:28px;
-      background:rgba(15,12,18,.72);border:1px solid var(--line);
-      padding:10px 14px;border-radius:12px;font-size:.92rem
+    .hero-card h3{font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:8px}
+    .hero-card p{color:var(--muted);margin-bottom:16px}
+    .hero-list{display:grid;gap:10px}
+    .hero-list li{
+      list-style:none;
+      padding:10px 12px;
+      background:var(--bg-soft);
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-weight:600;
+      color:oklch(0.38 0.03 40);
     }
 
-    section{padding:74px 0}
-    .section-title{font-family:'Playfair Display',serif;font-size:2.1rem;margin-bottom:10px}
-    .section-sub{color:var(--muted);margin-bottom:26px}
+    section{padding:66px 0}
+    .section-title{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:10px}
+    .section-sub{color:var(--muted);margin-bottom:24px}
 
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{
-      background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;
-      transition:.25s
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      transition:.25s;
+      box-shadow:0 8px 25px rgba(90, 64, 40, .06);
     }
-    .card:hover{transform:translateY(-4px);border-color:rgba(255,132,193,.45)}
-    .card h3{margin-bottom:8px;font-size:1.07rem}
+    .card:hover{transform:translateY(-4px);border-color:oklch(0.78 0.05 55)}
+    .card h3{margin-bottom:8px;font-size:1.06rem}
     .card p{color:var(--muted);font-size:.95rem}
 
-    .price-list{display:grid;gap:12px}
+    .price-list{display:grid;gap:10px}
     .price-row{
       display:flex;justify-content:space-between;gap:12px;align-items:center;
-      background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px
+      background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px
     }
-    .price-row strong{font-size:1.02rem}
-    .price{color:var(--accent-2);font-weight:800}
+    .price-row strong{font-size:1.01rem}
+    .price{color:var(--accent);font-weight:800}
 
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .gallery img{width:100%;height:190px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
-
-    .contact-wrap{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:18px
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+    .step-num{
+      width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+      color:#fff;background:var(--accent);font-weight:800;margin-bottom:10px;font-size:.9rem
     }
-    .contact-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+    .step h4{margin-bottom:6px}
+    .step p{color:var(--muted);font-size:.94rem}
+
+    .contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .contact-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
     .kpi{display:flex;align-items:center;gap:10px;color:var(--muted);margin-top:8px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 6px rgba(32,209,159,.13)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 6px rgba(50, 186, 128, .16)}
 
-    footer{padding:26px 0 36px;color:var(--muted);border-top:1px solid var(--line);margin-top:46px}
+    footer{padding:24px 0 34px;color:var(--muted);border-top:1px solid var(--line);margin-top:30px}
 
     .reveal{opacity:0;transform:translateY(18px);transition:all .6s ease}
     .reveal.show{opacity:1;transform:translateY(0)}
 
     @media (max-width:980px){
       .hero-grid,.contact-wrap{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr 1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .hero-card img{height:360px}
+      .grid-3,.steps{grid-template-columns:1fr 1fr}
     }
     @media (max-width:680px){
       .nav{display:none}
-      .grid-3{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr 1fr}
+      .grid-3,.steps{grid-template-columns:1fr}
       .hero{padding-top:62px}
       .btn{width:100%;justify-content:center}
       .hero-actions{flex-direction:column}
@@ -152,7 +168,7 @@
       <nav class="nav">
         <a href="#services">Услуги</a>
         <a href="#prices">Цены</a>
-        <a href="#works">Работы</a>
+        <a href="#process">Как работаю</a>
         <a href="#contact">Контакты</a>
       </nav>
     </div>
@@ -163,28 +179,34 @@
       <div class="container hero-grid">
         <div class="reveal">
           <div class="badge">✂️ Talivi Studio · 20+ лет опыта</div>
-          <h1>Татьяна — парикмахер-стилист с <span class="accent">чувством формы</span> и цвета</h1>
-          <p class="lead">Стрижки, окрашивание и уход без компромиссов. Работаю на качественных материалах (Kydra, Davines), чтобы волосы выглядели дорого и оставались живыми.</p>
+          <h1>Татьяна — парикмахер-стилист, который делает <span class="accent">форму и цвет</span> под тебя</h1>
+          <p class="lead">Женские стрижки, окрашивание и уход без «случайных экспериментов». Спокойно обсуждаем задачу, заранее согласовываем результат и стоимость.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/79000000000" target="_blank" rel="noopener">Записаться в WhatsApp</a>
-            <a class="btn btn-ghost" href="#works">Посмотреть работы</a>
+            <a class="btn btn-ghost" href="#process">Как проходит визит</a>
           </div>
         </div>
-        <div class="hero-card reveal">
-          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1100&q=80" alt="Парикмахер за работой" />
-          <div class="note">Индивидуальный подход · Аккуратно · Вовремя</div>
+        <div class="hero-card reveal" aria-label="Преимущества">
+          <h3>Почему приходят снова</h3>
+          <p>Без чужих «идеальных картинок»: только твой тип волос, твой ритм и результат, который удобно носить каждый день.</p>
+          <ul class="hero-list">
+            <li>✓ Консультация перед началом</li>
+            <li>✓ Точная работа с формой стрижки</li>
+            <li>✓ Бережное окрашивание и уход</li>
+            <li>✓ Рекомендации по домашнему уходу</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <h2 class="section-title reveal">Что делаем</h2>
-        <p class="section-sub reveal">Подбираю технику под форму лица, структуру волос и твой ритм жизни.</p>
+        <h2 class="section-title reveal">Услуги</h2>
+        <p class="section-sub reveal">Подбираю технику под форму лица, структуру волос и твой образ жизни.</p>
         <div class="grid-3">
-          <article class="card reveal"><h3>Женские стрижки</h3><p>Точные формы, мягкие слои, укладка с рекомендациями на каждый день.</p></article>
-          <article class="card reveal"><h3>Окрашивание</h3><p>От однотона до сложных техник: airtouch, шатуш, балаяж, тонирование.</p></article>
-          <article class="card reveal"><h3>Уход и восстановление</h3><p>Глубокий уход, блеск и плотность волос без тяжести и липкости.</p></article>
+          <article class="card reveal"><h3>Женские стрижки</h3><p>Формы, которые красиво отрастают и легко укладываются дома.</p></article>
+          <article class="card reveal"><h3>Окрашивание</h3><p>Однотон, тонирование, сложные техники: airtouch, шатуш, балаяж.</p></article>
+          <article class="card reveal"><h3>Уход и восстановление</h3><p>Работа с качеством полотна волос: блеск, плотность, мягкость.</p></article>
         </div>
       </div>
     </section>
@@ -192,7 +214,7 @@
     <section id="prices">
       <div class="container">
         <h2 class="section-title reveal">Ориентир по цене</h2>
-        <p class="section-sub reveal">Итог зависит от длины и густоты. Точную стоимость скажу до начала работы.</p>
+        <p class="section-sub reveal">Финальная стоимость зависит от длины и густоты, подтверждаю её до начала работы.</p>
         <div class="price-list">
           <div class="price-row reveal"><strong>Стрижка + укладка</strong><span class="price">от 2 500 ₽</span></div>
           <div class="price-row reveal"><strong>Окрашивание в один тон</strong><span class="price">от 4 500 ₽</span></div>
@@ -202,15 +224,26 @@
       </div>
     </section>
 
-    <section id="works">
+    <section id="process">
       <div class="container">
-        <h2 class="section-title reveal">Работы</h2>
-        <p class="section-sub reveal">Живые результаты. Без агрессивных фильтров.</p>
-        <div class="gallery">
-          <img class="reveal" src="images/1.jpg" alt="Работа 1" onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80'">
-          <img class="reveal" src="images/2.jpg" alt="Работа 2" onerror="this.src='https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80'">
-          <img class="reveal" src="images/3.jpg" alt="Работа 3" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80'">
-          <img class="reveal" src="images/4.jpg" alt="Работа 4" onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80'">
+        <h2 class="section-title reveal">Как проходит визит</h2>
+        <p class="section-sub reveal">Прозрачный процесс без сюрпризов — ты понимаешь каждый шаг.</p>
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-num">1</div>
+            <h4>Консультация</h4>
+            <p>Обсуждаем цель, состояние волос и что реально сработает именно тебе.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">2</div>
+            <h4>Работа и контроль</h4>
+            <p>Аккуратно веду процесс, объясняю этапы и фиксирую промежуточный результат.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num">3</div>
+            <h4>Финиш и рекомендации</h4>
+            <p>Показываю укладку, даю понятный домашний уход и частоту обновления формы/цвета.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -228,7 +261,7 @@
         </div>
         <div class="contact-box reveal">
           <h3 style="font-size:1.1rem;margin-bottom:10px">Talivi</h3>
-          <p style="color:var(--muted)">Москва, по записи</p>
+          <p style="color:var(--muted)">Москва, по предварительной записи</p>
           <p style="margin-top:10px;color:var(--muted)">Пн–Сб: 10:00–20:00</p>
           <p style="margin-top:10px;color:var(--muted)">Материалы: Kydra, Davines</p>
         </div>
@@ -237,7 +270,7 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Talivi. Сделано с любовью к деталям.</div>
+    <div class="container">© <span id="year"></span> Talivi. Светлый, чистый и по делу.</div>
   </footer>
 
   <script>
