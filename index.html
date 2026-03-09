@@ -3,841 +3,249 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Татьяна | Парикмахер-стилист</title>
-  <meta name="description" content="Парикмахер-стилист Татьяна. Более 20 лет опыта. Окрашивание, стрижки, укладки. Салон Talivi. Качественные материалы Kydra и Davines.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <title>Talivi — Татьяна, парикмахер-стилист</title>
+  <meta name="description" content="Татьяна — парикмахер-стилист с опытом 20+ лет. Стрижки, окрашивание, уход и укладки в Talivi.">
+  <meta property="og:title" content="Talivi — Татьяна, парикмахер-стилист" />
+  <meta property="og:description" content="Стрижки, окрашивание, уход и укладки. Запись в один клик." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
-      overflow-x: hidden;
-      position: relative;
-    }
-    
-    /* Креативные плавающие элементы */
-    body::before {
-      content: '✂️';
-      position: fixed;
-      top: 20%;
-      right: 10%;
-      font-size: 2rem;
-      opacity: 0.1;
-      animation: float-scissors 8s ease-in-out infinite;
-      z-index: 1;
-    }
-    body::after {
-      content: '💫';
-      position: fixed;
-      bottom: 30%;
-      left: 5%;
-      font-size: 1.5rem;
-      opacity: 0.15;
-      animation: float-sparkle 6s ease-in-out infinite reverse;
-      z-index: 1;
-    }
-    
-    @keyframes float-scissors {
-      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
-      50% { transform: translateY(-30px) rotate(15deg); opacity: 0.2; }
-    }
-    @keyframes float-sparkle {
-      0%, 100% { transform: translateX(0px) scale(1); }
-      50% { transform: translateX(20px) scale(1.2); }
-    }
-    
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0; z-index: 100;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(212, 0, 85, 0.1);
-    }
-    .logo {
-      font-family: 'Lora', serif;
-      font-size: 2.8rem;
-      color: #d40055;
-      margin-bottom: 10px;
-      position: relative;
-    }
-    .logo::after {
-      content: '✨';
-      position: absolute;
-      top: -5px;
-      right: -30px;
-      font-size: 1.2rem;
-      animation: sparkle 3s ease-in-out infinite;
-    }
-    @keyframes sparkle {
-      0%, 100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.2); }
-    }
-    .nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      font-size: 1.1rem;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .nav a:hover {
-      color: #d40055;
-    }
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #d40055, #ff6b9d);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-    .nav a:hover::after {
-      width: 100%;
-    }
-    
-    .hero {
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(212, 0, 85, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 107, 157, 0.3) 0%, transparent 50%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 249, 249, 0.8) 100%),
-        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-      padding: 180px 0; 
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(212, 0, 85, 0.08) 0%, transparent 70%);
-      animation: hero-float 10s ease-in-out infinite;
-    }
-    @keyframes hero-float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-40px) rotate(180deg); }
-    }
-    .hero h2 { 
-      font-family: 'Lora', serif; 
-      font-size: 3.5rem; 
-      color: #333; 
-      margin-bottom: 25px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .hero p { 
-      font-size: 1.4rem; 
-      margin-bottom: 50px; 
-      color: #555;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .btn {
-      display: inline-block; 
-      background: linear-gradient(135deg, #d40055, #ff6b9d);
-      color: white;
-      padding: 18px 45px; 
-      text-decoration: none; 
-      border-radius: 50px;
-      font-weight: 600; 
-      font-size: 1.1rem; 
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 30px rgba(212, 0, 85, 0.4); 
-      margin: 10px;
-      position: relative;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.6s;
-    }
-    .btn:hover::before {
-      left: 100%;
-    }
-    .btn:hover { 
-      background: linear-gradient(135deg, #b00044, #e55a8a);
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(212, 0, 85, 0.5);
-    }
-    .btn:active {
-      transform: translateY(-2px) scale(1.02);
-    }
-    
-    .section {
-      padding: 120px 0;
-      position: relative;
-    }
-    .section:nth-child(even) {
-      background: rgba(248, 248, 248, 0.5);
-    }
-    .section h2 {
-      font-family: 'Lora', serif;
-      font-size: 2.8rem;
-      color: #333;
-      text-align: center;
-      margin-bottom: 70px;
-      position: relative;
-    }
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(90deg, #d40055, #ff6b9d);
-      border-radius: 2px;
-      box-shadow: 0 2px 10px rgba(212, 0, 85, 0.3);
-    }
-    
-    .about-content, .services-grid, .price-table, .portfolio-grid, .contacts-content {
-      max-width: 1000px; margin: 0 auto;
-    }
-    .about-content p { 
-      font-size: 1.15rem; 
-      margin-bottom: 25px; 
-      color: #444;
-      line-height: 1.8;
-    }
-    .brand-highlight { 
-      color: #d40055; 
-      font-weight: 600; 
-      font-style: italic;
-      position: relative;
-    }
-    .brand-highlight::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #d40055, transparent);
-      opacity: 0.3;
-    }
-    
-    .services-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px; 
-      margin-top: 50px;
-    }
-    .service {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      padding: 40px; 
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid rgba(212, 0, 85, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .service::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 0, 85, 0.1), transparent);
-      transition: left 0.6s;
-    }
-    .service:hover::before {
-      left: 100%;
-    }
-    .service:hover { 
-      transform: translateY(-15px) scale(1.03); 
-      box-shadow: 0 25px 50px rgba(212, 0, 85, 0.15);
-      border-color: rgba(212, 0, 85, 0.3);
-    }
-    .service h3 { 
-      font-family: 'Lora', serif; 
-      color: #d40055; 
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-    .service p {
-      color: #666;
-      line-height: 1.6;
-    }
-    
-    .price-table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      margin-top: 40px;
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    .price-table th, .price-table td {
-      padding: 20px; 
-      text-align: left; 
-      border-bottom: 1px solid #eee; 
-      font-size: 1.05rem;
-    }
-    .price-table th { 
-      background: #f8f8f8; 
-      font-weight: 600; 
-      color: #333;
-    }
-    .price-table tr:hover {
-      background: rgba(212, 0, 85, 0.05);
-      transition: background 0.3s ease;
-    }
-    .price-note { 
-      font-size: 1rem; 
-      color: #666; 
-      margin-top: 25px; 
-      font-style: italic;
-      text-align: center;
-    }
-    
-    .portfolio-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px; 
-      margin-top: 40px;
-    }
-    .portfolio-img {
-      width: 100%; 
-      height: 380px; 
-      object-fit: cover;
-      border-radius: 20px; 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      cursor: pointer; 
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 3px solid rgba(212, 0, 85, 0.1);
-    }
-    .portfolio-img:hover { 
-      transform: scale(1.05) rotate(2deg); 
-      box-shadow: 0 20px 40px rgba(212, 0, 85, 0.15);
-      border-color: rgba(212, 0, 85, 0.3);
-    }
-    
-    .lightbox {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center;
-      visibility: hidden; opacity: 0; transition: opacity 0.3s;
-      z-index: 1000;
-    }
-    .lightbox img { 
-      max-width: 95%; 
-      max-height: 95%; 
-      border-radius: 15px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-    .lightbox.visible { visibility: visible; opacity: 1; }
-    
-    .reviews {
-      background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 35px;
-      margin-top: 60px;
-    }
-    .review {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      position: relative;
-      transition: all 0.4s ease;
-      border: 2px solid rgba(212, 0, 85, 0.1);
-    }
-    .review:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px rgba(212, 0, 85, 0.15);
-      border-color: rgba(212, 0, 85, 0.2);
-    }
-    .review::before {
-      content: '"';
-      position: absolute;
-      top: -15px;
-      left: 25px;
-      font-size: 5rem;
-      color: rgba(212, 0, 85, 0.2);
-      font-family: serif;
-    }
-    .review-text {
-      font-style: italic;
-      margin-bottom: 25px;
-      color: #555;
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-    .review-author {
-      font-weight: 600;
-      color: #d40055;
-      font-size: 1.1rem;
-    }
-    .stars {
-      color: #FFB347;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-    }
-    
-    .instagram-widget {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      padding: 50px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      text-align: center;
-      margin-top: 60px;
-      border: 2px solid rgba(212, 0, 85, 0.1);
-    }
-    .instagram-widget h3 {
-      font-family: 'Lora', serif;
-      color: #d40055;
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-    }
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin: 40px 0;
-    }
-    .instagram-post {
-      aspect-ratio: 1;
-      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.2rem;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(212, 0, 85, 0.2);
-    }
-    .instagram-post::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.2);
-      transition: opacity 0.3s;
-    }
-    .instagram-post:hover::before {
-      opacity: 0;
-    }
-    .instagram-post:hover {
-      transform: scale(1.08) rotate(5deg);
-      box-shadow: 0 15px 35px rgba(212, 0, 85, 0.3);
-    }
-    
-    .contact-form {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      padding: 50px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      max-width: 650px;
-      margin: 60px auto 0;
-      border: 2px solid rgba(212, 0, 85, 0.1);
-    }
-    .form-group {
-      margin-bottom: 30px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: #333;
-      font-size: 1.05rem;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 18px;
-      border: 2px solid #eee;
-      border-radius: 15px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background: rgba(255,255,255,0.9);
-      font-family: 'Montserrat', sans-serif;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: #d40055;
-      box-shadow: 0 0 0 3px rgba(212, 0, 85, 0.1);
-      transform: translateY(-2px);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
-    
-    .contacts-content p { 
-      font-size: 1.15rem; 
-      margin-bottom: 20px; 
-      color: #444;
-    }
-    .contacts-content a { 
-      color: #d40055; 
-      text-decoration: none; 
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .contacts-content a:hover { 
-      color: #b00044;
-      text-decoration: underline; 
-    }
-    
-    .footer { 
-      background: linear-gradient(135deg, #d40055, #ff6b9d); 
-      color: white; 
-      text-align: center; 
-      padding: 30px 0; 
-      margin-top: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .footer::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: footer-shine 15s ease-in-out infinite;
-    }
-    @keyframes footer-shine {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(180deg); }
-    }
-    
-    .animate { 
-      opacity: 0; 
-      transform: translateY(50px); 
-      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .animate.visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 2.5rem; }
-      .hero p { font-size: 1.2rem; }
-      .btn { padding: 15px 35px; font-size: 1rem; }
-      .nav a { margin: 0 10px; font-size: 1rem; }
-      .section { padding: 80px 0; }
-      .service { padding: 30px; }
-      .portfolio-img { height: 300px; }
-      .price-table th, .price-table td { font-size: 0.95rem; padding: 15px; }
-      .reviews-grid { grid-template-columns: 1fr; gap: 25px; }
-      .review { padding: 30px; }
-      .instagram-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-      .contact-form { padding: 35px 25px; margin: 40px 20px 0; }
-      .instagram-widget { padding: 35px 25px; }
+    :root{
+      --bg:#0f0c12;
+      --bg-soft:#17111d;
+      --card:#1e1627;
+      --text:#f8f5fb;
+      --muted:#c2b6ce;
+      --accent:#ff4fa3;
+      --accent-2:#ff84c1;
+      --line:rgba(255,255,255,.12);
+      --ok:#20d19f;
+      --shadow:0 20px 70px rgba(255,79,163,.22);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Manrope',system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 500px at 85% -5%, rgba(255,132,193,.18), transparent 50%),
+        radial-gradient(900px 450px at -10% 25%, rgba(255,79,163,.15), transparent 45%),
+        var(--bg);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:0 auto}
+
+    .header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(15,12,18,.6);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{font-family:'Playfair Display',serif;font-size:1.8rem;letter-spacing:.5px}
+    .logo span{color:var(--accent)}
+    .nav{display:flex;gap:22px;align-items:center}
+    .nav a{color:var(--muted);font-weight:600;position:relative}
+    .nav a:hover{color:var(--text)}
+    .nav a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--accent);transition:.25s}
+    .nav a:hover::after{width:100%}
+
+    .hero{padding:84px 0 68px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      border:1px solid var(--line);background:rgba(255,255,255,.03);
+      color:var(--muted);padding:8px 14px;border-radius:999px;font-size:.92rem
+    }
+    h1{
+      margin:18px 0 14px;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.1rem,5vw,4rem);
+      line-height:1.08;
+    }
+    .accent{color:var(--accent-2)}
+    .lead{color:var(--muted);font-size:1.08rem;max-width:620px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      padding:13px 22px;border-radius:14px;border:1px solid transparent;
+      font-weight:700;transition:.25s;display:inline-flex;align-items:center;gap:10px
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),#ff2f92);
+      box-shadow:var(--shadow);
+    }
+    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .btn-ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+    .btn-ghost:hover{border-color:rgba(255,255,255,.3)}
+
+    .hero-card{
+      background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      border:1px solid var(--line);border-radius:22px;padding:18px;position:relative;overflow:hidden
+    }
+    .hero-card img{width:100%;height:440px;object-fit:cover;border-radius:16px;display:block}
+    .hero-card .note{
+      position:absolute;left:28px;bottom:28px;
+      background:rgba(15,12,18,.72);border:1px solid var(--line);
+      padding:10px 14px;border-radius:12px;font-size:.92rem
+    }
+
+    section{padding:74px 0}
+    .section-title{font-family:'Playfair Display',serif;font-size:2.1rem;margin-bottom:10px}
+    .section-sub{color:var(--muted);margin-bottom:26px}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;
+      transition:.25s
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(255,132,193,.45)}
+    .card h3{margin-bottom:8px;font-size:1.07rem}
+    .card p{color:var(--muted);font-size:.95rem}
+
+    .price-list{display:grid;gap:12px}
+    .price-row{
+      display:flex;justify-content:space-between;gap:12px;align-items:center;
+      background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px 16px
+    }
+    .price-row strong{font-size:1.02rem}
+    .price{color:var(--accent-2);font-weight:800}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:190px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+
+    .contact-wrap{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:18px
+    }
+    .contact-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+    .kpi{display:flex;align-items:center;gap:10px;color:var(--muted);margin-top:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 6px rgba(32,209,159,.13)}
+
+    footer{padding:26px 0 36px;color:var(--muted);border-top:1px solid var(--line);margin-top:46px}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:all .6s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    @media (max-width:980px){
+      .hero-grid,.contact-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .hero-card img{height:360px}
+    }
+    @media (max-width:680px){
+      .nav{display:none}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .hero{padding-top:62px}
+      .btn{width:100%;justify-content:center}
+      .hero-actions{flex-direction:column}
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="container">
-      <h1 class="logo">Татьяна</h1>
+    <div class="container header-inner">
+      <a class="logo" href="#top">Ta<span>livi</span></a>
       <nav class="nav">
-        <a href="#about">О мастере</a>
         <a href="#services">Услуги</a>
         <a href="#prices">Цены</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#contacts">Контакты</a>
+        <a href="#works">Работы</a>
+        <a href="#contact">Контакты</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Элегантность начинается с волос</h2>
-      <p>Более 20 лет создаю образы, которые подчеркивают вашу индивидуальность и раскрывают внутреннюю красоту.</p>
-      <a href="https://t.me/TanyaStylistBot" target="_blank" class="btn">Записаться через Telegram</a>
-      <a href="#contacts" class="btn">Контакты</a>
-    </div>
-  </section>
-
-  <section id="about" class="about section animate">
-    <div class="container">
-      <h2>О мастере</h2>
-      <div class="about-content">
-        <p>Татьяна — парикмахер-стилист с более чем 20-летним опытом работы. Работает в салоне <a href="https://talivi.ru/" target="_blank">Talivi</a>, где делает акцент на качественные технологии и натуральные материалы.</p>
-        <p>Использую только профессиональные линейки <span class="brand-highlight">Kydra</span> и <span class="brand-highlight">Davines</span> — они бережно окрашивают, восстанавливают и защищают волосы даже при самых сложных техниках.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="services section animate">
-    <div class="container">
-      <h2>Услуги</h2>
-      <div class="services-grid">
-        <div class="service"><h3>Стрижка</h3><p>Индивидуальный подход к каждой прическе с учетом формы лица и структуры волос.</p></div>
-        <div class="service"><h3>Укладка</h3><p>Для любого случая: свадьба, вечеринка, офис. Создаю образы, которые подчеркивают вашу красоту.</p></div>
-        <div class="service"><h3>Окрашивание</h3><p>Без аммиака, с питанием и блеском. Современные техники для здоровых и красивых волос.</p></div>
-        <div class="service"><h3>Тонирование</h3><p>Мелирование, balayage, ombre, shatush. Создаю естественные переходы цвета.</p></div>
-        <div class="service"><h3>Блондирование</h3><p>Сохранение здоровья волос при осветлении. Деликатный подход к каждому типу волос.</p></div>
-        <div class="service"><h3>Уход</h3><p>Восстановление и питание волос. Комплексный подход к здоровью ваших волос.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="prices" class="prices section animate">
-    <div class="container">
-      <h2>Цены</h2>
-      <table class="price-table">
-        <tr><th>Услуга</th><th>Цена, руб.</th></tr>
-        <tr><td colspan="2" style="background: linear-gradient(135deg, #d40055, #ff6b9d); color: white; font-weight: 600; text-align: center;">ОКРАШИВАНИЕ</td></tr> #2D5A57, #D4A574); color: white; font-weight: 600; text-align: center;">СТРИЖКИ</td></tr>
-        <tr><td>Стрижка женская короткие, средние волосы</td><td>4 000</td></tr>
-        <tr><td>Стрижка женская длинные волосы</td><td>4 500</td></tr>
-        <tr><td>Стрижка одним срезом</td><td>2 500</td></tr>
-        <tr><td>Стрижка челки</td><td>1 000</td></tr>
-        <tr><td>Стрижка детская женская (до 12 лет)</td><td>2 300</td></tr>
-        <tr><td>Стрижка детская мужская (до 12 лет)</td><td>2 000</td></tr>
-        <tr><td>Стрижка мужская</td><td>2 900</td></tr>
-        <tr><td>Стрижка машинкой для мужчин</td><td>1 500</td></tr>
-        <tr><td>Оформление бороды</td><td>1 500</td></tr>
-        <tr><td>Окантовка</td><td>1 300</td></tr>
-        <tr><td colspan="2" style="background: linear-gradient(135deg, #d40055, #ff6b9d); color: white; font-weight: 600; text-align: center;">УКЛАДКИ</td></tr>
-        <tr><td>Укладка волос повседневная (до плеч)</td><td>2 200</td></tr>
-        <tr><td>Укладка волос повседневная (ниже плеч)</td><td>2 800</td></tr>
-        <tr><td>Укладка волос коктейльная (до плеч)</td><td>3 200</td></tr>
-        <tr><td>Укладка волос коктейльная (ниже плеч)</td><td>3 800</td></tr>
-        <tr><td>Детская повседневная укладка (до 12 лет)</td><td>2 000</td></tr>
-        <tr><td>Детская вечерняя укладка (до 12 лет)</td><td>2 500</td></tr>
-        <tr><td>Сушка феном</td><td>1 500</td></tr>
-        <tr><td colspan="2" style="background: linear-gradient(135deg, #E07A5F, #CD853F); color: white; font-weight: 600; text-align: center;">ОКРАШИВАНИЕ</td></tr>
-        <tr><td>Окрашивающая техника (короткие волосы)</td><td>12 000</td></tr>
-        <tr><td>Окрашивающая техника (средние волосы)</td><td>14 000</td></tr>
-        <tr><td>Окрашивающая техника (длинные волосы)</td><td>от 16 000</td></tr>
-        <tr><td>Контуринг</td><td>8 000</td></tr>
-      </table>
-      <p class="price-note">Все услуги выполняются с использованием <span class="brand-highlight">Kydra</span> и <span class="brand-highlight">Davines</span>.</p>
-    </div>
-  </section>
-
-  <section id="portfolio" class="portfolio section animate">
-    <div class="container">
-      <h2>Портфолио</h2>
-      <div class="portfolio-grid">
-        <img src="images/photo1.jpg" alt="Работа 1" class="portfolio-img">
-        <img src="images/photo2.jpg" alt="Работа 2" class="portfolio-img">
-        <img src="images/photo3.jpg" alt="Работа 3" class="portfolio-img">
-        <img src="images/photo4.jpg" alt="Работа 4" class="portfolio-img">
-        <img src="images/photo5.jpg" alt="Работа 5" class="portfolio-img">
-        <img src="images/photo6.jpg" alt="Работа 6" class="portfolio-img">
-        <img src="images/photo7.jpg" alt="Работа 7" class="portfolio-img">
-        <img src="images/photo8.jpg" alt="Работа 8" class="portfolio-img">
-        <img src="images/photo9.jpg" alt="Работа 9" class="portfolio-img">
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="reviews section animate">
-    <div class="container">
-      <h2>Отзывы клиентов</h2>
-      <div class="reviews-grid">
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">
-            Татьяна - настоящий профессионал! Сделала мне идеальное мелирование, волосы остались здоровыми и блестящими. Всегда учитывает мои пожелания и дает отличные советы по уходу.
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="badge">✂️ Talivi Studio · 20+ лет опыта</div>
+          <h1>Татьяна — парикмахер-стилист с <span class="accent">чувством формы</span> и цвета</h1>
+          <p class="lead">Стрижки, окрашивание и уход без компромиссов. Работаю на качественных материалах (Kydra, Davines), чтобы волосы выглядели дорого и оставались живыми.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/79000000000" target="_blank" rel="noopener">Записаться в WhatsApp</a>
+            <a class="btn btn-ghost" href="#works">Посмотреть работы</a>
           </div>
-          <div class="review-author">Анна К.</div>
         </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">
-            Хожу к Татьяне уже 3 года. Она единственная, кому доверяю свои волосы! Всегда современные техники окрашивания, отличный результат. Салон Talivi тоже на высоте.
+        <div class="hero-card reveal">
+          <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1100&q=80" alt="Парикмахер за работой" />
+          <div class="note">Индивидуальный подход · Аккуратно · Вовремя</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title reveal">Что делаем</h2>
+        <p class="section-sub reveal">Подбираю технику под форму лица, структуру волос и твой ритм жизни.</p>
+        <div class="grid-3">
+          <article class="card reveal"><h3>Женские стрижки</h3><p>Точные формы, мягкие слои, укладка с рекомендациями на каждый день.</p></article>
+          <article class="card reveal"><h3>Окрашивание</h3><p>От однотона до сложных техник: airtouch, шатуш, балаяж, тонирование.</p></article>
+          <article class="card reveal"><h3>Уход и восстановление</h3><p>Глубокий уход, блеск и плотность волос без тяжести и липкости.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="container">
+        <h2 class="section-title reveal">Ориентир по цене</h2>
+        <p class="section-sub reveal">Итог зависит от длины и густоты. Точную стоимость скажу до начала работы.</p>
+        <div class="price-list">
+          <div class="price-row reveal"><strong>Стрижка + укладка</strong><span class="price">от 2 500 ₽</span></div>
+          <div class="price-row reveal"><strong>Окрашивание в один тон</strong><span class="price">от 4 500 ₽</span></div>
+          <div class="price-row reveal"><strong>Сложное окрашивание</strong><span class="price">от 7 500 ₽</span></div>
+          <div class="price-row reveal"><strong>Уход / восстановление</strong><span class="price">от 2 000 ₽</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="container">
+        <h2 class="section-title reveal">Работы</h2>
+        <p class="section-sub reveal">Живые результаты. Без агрессивных фильтров.</p>
+        <div class="gallery">
+          <img class="reveal" src="images/1.jpg" alt="Работа 1" onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80'">
+          <img class="reveal" src="images/2.jpg" alt="Работа 2" onerror="this.src='https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80'">
+          <img class="reveal" src="images/3.jpg" alt="Работа 3" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80'">
+          <img class="reveal" src="images/4.jpg" alt="Работа 4" onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80'">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-wrap">
+        <div class="contact-box reveal">
+          <h2 class="section-title" style="margin-bottom:6px">Запись</h2>
+          <p class="section-sub" style="margin-bottom:12px">Напиши в WhatsApp или Telegram — отвечаю быстро.</p>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn btn-primary" href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-ghost" href="https://t.me/your_username" target="_blank" rel="noopener">Telegram</a>
           </div>
-          <div class="review-author">Мария С.</div>
+          <div class="kpi"><span class="dot"></span>Среднее время ответа: 5–15 минут</div>
         </div>
-        <div class="review">
-          <div class="stars">★★★★★</div>
-          <div class="review-text">
-            Впервые решилась на кардинальную смену цвета волос. Татьяна подошла к процессу очень ответственно, результат превзошел все ожидания! Буду рекомендовать всем подругам.
-          </div>
-          <div class="review-author">Елена В.</div>
+        <div class="contact-box reveal">
+          <h3 style="font-size:1.1rem;margin-bottom:10px">Talivi</h3>
+          <p style="color:var(--muted)">Москва, по записи</p>
+          <p style="margin-top:10px;color:var(--muted)">Пн–Сб: 10:00–20:00</p>
+          <p style="margin-top:10px;color:var(--muted)">Материалы: Kydra, Davines</p>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="instagram-widget">
-        <h3>Следите за новыми работами в Instagram</h3>
-        <p>Свежие фото причесок, полезные советы по уходу за волосами</p>
-        <div class="instagram-grid">
-          <a href="https://www.instagram.com/mashkovatanya" target="_blank" class="instagram-post">📸</a>
-          <a href="https://www.instagram.com/mashkovatanya" target="_blank" class="instagram-post">💫</a>
-          <a href="https://www.instagram.com/mashkovatanya" target="_blank" class="instagram-post">✨</a>
-        </div>
-        <a href="https://www.instagram.com/mashkovatanya" target="_blank" class="btn">Подписаться в Instagram</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacts" class="contacts section animate">
-    <div class="container">
-      <h2>Контакты и запись</h2>
-      <div class="contacts-content">
-        <p>Работает в салоне <a href="https://talivi.ru/" target="_blank">Talivi</a></p>
-        <p>Телефон / WhatsApp: <a href="tel:+74952150307">+7 (495) 215-03-07</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/mashkovatanya" target="_blank">@mashkovatanya</a></p>
-        <p><a href="https://t.me/TanyaStylistBot" target="_blank" class="btn" style="color: white;">Записаться через Telegram</a></p>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <h3 style="text-align: center; margin-bottom: 35px; color: #2D5A57; font-family: 'Lora', serif; font-size: 1.8rem;">Или оставьте заявку</h3>
-        <div class="form-group">
-          <label for="name">Ваше имя *</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Телефон *</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="service">Интересующая услуга</label>
-          <select id="service" name="service">
-            <option value="">Выберите услугу</option>
-            <option value="coloring">Окрашивание</option>
-            <option value="haircut">Стрижка</option>
-            <option value="styling">Укладка</option>
-            <option value="care">Уход за волосами</option>
-            <option value="consultation">Консультация</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Дополнительная информация</label>
-          <textarea id="message" name="message" placeholder="Опишите желаемый результат, длину волос, предыдущие окрашивания..."></textarea>
-        </div>
-        <button type="submit" class="btn" style="width: 100%; margin-top: 25px;">Отправить заявку</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Татьяна. Все права защищены.</p>
-    </div>
+  <footer>
+    <div class="container">© <span id="year"></span> Talivi. Сделано с любовью к деталям.</div>
   </footer>
 
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Просмотр" id="lightbox-img">
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Инициализация EmailJS (замените YOUR_PUBLIC_KEY на ваш ключ)
-      // emailjs.init("YOUR_PUBLIC_KEY");
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.animate').forEach(el => { observer.observe(el); });
-
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      document.querySelectorAll('.portfolio-img').forEach(img => {
-        img.addEventListener('click', () => {
-          lightboxImg.src = img.src;
-          lightbox.classList.add('visible');
-        });
-      });
-      lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('visible');
-      });
-
-      // Обработка формы обратной связи
-      const contactForm = document.getElementById('contactForm');
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.textContent;
-      
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Показываем загрузку
-        submitBtn.textContent = 'Отправка...';
-        submitBtn.disabled = true;
-        
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const phone = formData.get('phone');
-        const service = formData.get('service');
-        const message = formData.get('message');
-        
-        // Формируем текст письма
-        const emailBody = `
-Новая заявка с сайта:
-
-Имя: ${name}
-Телефон: ${phone}
-Услуга: ${service || 'Не указана'}
-Дополнительная информация: ${message || 'Не указана'}
-        `.trim();
-        
-        const mailtoLink = `mailto:tanyamashkova@yandex.ru?subject=Новая заявка с сайта от ${name}&body=${encodeURIComponent(emailBody)}`;
-        window.location.href = mailtoLink;
-        
-        alert('Сейчас откроется ваш почтовый клиент для отправки письма.');
-        contactForm.reset();
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
-      });
-
-      // Плавная прокрутка к якорям
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
 </html>
