@@ -31,9 +31,10 @@
       font-family:'Manrope',system-ui,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at -10% -10%, rgba(255, 225, 202, .55), transparent 50%),
-        radial-gradient(1000px 550px at 110% 10%, rgba(255, 236, 214, .52), transparent 50%),
-        var(--bg);
+        radial-gradient(1200px 700px at 10% 0%, rgba(212,131,93,.18), transparent 55%),
+        radial-gradient(1000px 650px at 100% 20%, rgba(255,199,153,.14), transparent 60%),
+        linear-gradient(180deg, rgba(16,14,13,.70), rgba(22,18,16,.78)),
+        url('images/photo8.jpg') center/cover fixed no-repeat;
       line-height:1.6;
       overflow-x:hidden;
     }
@@ -59,17 +60,20 @@
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     .badge{
       display:inline-flex;gap:8px;align-items:center;
-      border:1px solid var(--line);background:#fff;
-      color:var(--muted);padding:8px 14px;border-radius:999px;font-size:.92rem
+      border:1px solid rgba(255,255,255,.28);background:rgba(25,21,19,.45);
+      color:rgba(255,245,236,.92);padding:8px 14px;border-radius:999px;font-size:.92rem;
+      backdrop-filter:blur(6px)
     }
     h1{
       margin:18px 0 14px;
       font-family:'Playfair Display',serif;
       font-size:clamp(2.1rem,5vw,3.9rem);
       line-height:1.08;
+      color:#fff;
+      text-shadow:0 8px 28px rgba(0,0,0,.35);
     }
-    .accent{color:var(--accent)}
-    .lead{color:var(--muted);font-size:1.08rem;max-width:620px}
+    .accent{color:oklch(0.79 0.17 45)}
+    .lead{color:rgba(255,245,236,.9);font-size:1.08rem;max-width:620px;text-shadow:0 5px 20px rgba(0,0,0,.26)}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
     .btn{
       padding:13px 22px;border-radius:14px;border:1px solid transparent;
@@ -105,8 +109,8 @@
     }
 
     section{padding:66px 0}
-    .section-title{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:10px}
-    .section-sub{color:var(--muted);margin-bottom:24px}
+    .section-title{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:10px;color:#fff;text-shadow:0 6px 24px rgba(0,0,0,.35)}
+    .section-sub{color:rgba(255,245,236,.86);margin-bottom:24px;text-shadow:0 4px 18px rgba(0,0,0,.28)}
 
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{
@@ -275,10 +279,9 @@
       <div class="container contact-wrap">
         <div class="contact-box reveal">
           <h2 class="section-title" style="margin-bottom:6px">Запись</h2>
-          <p class="section-sub" style="margin-bottom:12px">Напиши в WhatsApp или Telegram — отвечаю быстро.</p>
+          <p class="section-sub" style="margin-bottom:12px">Напиши в WhatsApp — отвечаю быстро.</p>
           <div class="hero-actions" style="margin-top:0">
             <a class="btn btn-primary" href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="btn btn-ghost" href="https://t.me/your_username" target="_blank" rel="noopener">Telegram</a>
           </div>
           <div class="kpi"><span class="dot"></span>Среднее время ответа: 5–15 минут</div>
         </div>
